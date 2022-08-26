@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { createStore } from 'redux';
+import {legacy_createStore as createStore} from 'redux';
 import { Provider } from 'react-redux';
 
 // action = {type: "", payload: "?"}
@@ -11,7 +11,7 @@ const defaultState = {
 
 // action = {type: "", payload: "?"}
 
-const reducer = (state, action) => {
+const reducer = (state = defaultState, action) => {
   switch (action.type) {
       case "ADD_CASH":
           return {...state, cash: state.cash + action.payload}

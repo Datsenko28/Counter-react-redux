@@ -7,13 +7,20 @@ function App() {
   const cash = useSelector(state => state.cash)  
   console.log(cash);
 
+  const addCash = () =>{
+    dispatch({type: "ADD_CASH", payload: 1})
+  }
+  const getCash = () =>{
+    dispatch({type: "GET_CASH", payload: 1})
+  }
+
   return (
     <div className="App">
       <div>
         <h2>Счетчик:</h2>
-        <h1>0</h1>
-        <button className="minus">- Минус</button>
-        <button className="plus">Плюс +</button>
+        <h1>{cash}</h1>
+        <button onClick={()=> getCash()} className="minus">- Минус</button>
+        <button onClick={()=> addCash()} className="plus">Плюс +</button>
       </div>
     </div>
   );
